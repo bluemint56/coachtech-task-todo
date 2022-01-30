@@ -1,0 +1,75 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: DarkBlue;
+  position: relative;
+}
+
+.main {
+  background-color: white;
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  display: block;
+}
+
+h2 {
+  font-size: 28px;
+  padding: 20px;
+}
+
+.f-create {
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+}
+table th {
+  padding: 10px;
+}
+table td {
+  padding: 10px;
+}
+
+
+.c-btn {
+  background-color: white;
+  border: solid 2px MediumOrchid;
+  border-radius: 5px;
+  color: MediumOrchid;
+  padding: 7px;
+}
+.c-btn:hover {
+  color: white;
+  background-color: MediumOrchid;
+}
+
+.u-btn {
+  background-color:white;
+  border: solid 2px Tomato;
+  border-radius: 5px;
+  color: Tomato;
+  padding: 7px;
+}
+
+.u-btn:hover {
+  color: white;
+  background-color: Tomato;
+}
+
+.d-btn {
+  background-color: white;
+  border: solid 2px MediumSpringGreen;
+  border-radius: 5px;
+  color: MediumSpringGreen;
+  padding: 7px;
+}
+
+.d-btn:hover {
+  color: white;
+  background-color: MediumSpringGreen;
+}
