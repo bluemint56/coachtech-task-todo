@@ -16,9 +16,19 @@ class TodoController extends Controller
   //createメソッド
     public function create(Request $request)
     {
-        $items = $request->all();
+        $form = $request->all();
         $this->validate($request, Todo::$rules);
-        $items = Todo::create($items);
+        $items = Todo::create($form);
+        return redirect('/');
+    }
+
+  //updateメソッド
+    public function update(Request $request)
+    {
+        $form = $request->all();
+        $this->validate($request, Todo::$rules);
+        unset($form['_token']);
+        Todo::where('id', $request->id)->update($form);
         return redirect('/');
     }
 }

@@ -14,9 +14,10 @@
   <form action="/todo/create" method="POST">
     @csrf
     <div class="f-create">
-    <input type="text" name="create" size="40">
-    <input type="submit" value="追加" name="create" class="c-btn">
+    <input type="text" name="content" size="40">
+    <button type="submit" class="c-btn">追加</button>
     </div>
+  </form>
     <table>
       <tr>
       <th>作成日</th>
@@ -24,16 +25,22 @@
       <th>更新</th>
       <th>削除</th>
       </tr>
-      <tr>
       @foreach($items as $item)
-      <td>{{$item->created_at}}</td>
-      <td><input type="text" name="update_cnt" value="{{$item->content}}"></td>
-      <td><input type="submit" name="update" value="更新" class="u-btn"></td>
-      <td><input type="submit" name="delete" value="削除" class="d-btn"></td>
-      @endforeach
+      <tr>
+      <form action="/todo/update" method="POST" >
+      @csrf
+      <input type="hidden" name="id" value="{{$item->id}}">
+      <td>{{$item->timestamp()}}</td>
+      <td><input type="text"  value="{{$item->content}}" name="content"></td>
+      <td><button type="submit" class="u-btn">更新</button></td>
+      </form>
+      <form action="/todo/delete" method="POST">
+        @csrf
+      <td><button type="submit" class="d-btn">削除</button></td>
+      </form>
       </tr>
+      @endforeach
 </table>
-</form>
 </div>
 </body>
 </html>
