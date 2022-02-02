@@ -11,13 +11,23 @@
 <body>
 <div class="main">
   <h2>Todo List</h2>
+
+  @if (count($errors) > 0)
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+    </ul>
+  @endif
+
   <form action="/todo/create" method="POST">
     @csrf
     <div class="f-create">
-    <input type="text" name="content" size="40">
+    <input type="text" name="content" size="40" class="frame">
     <button type="submit" class="c-btn">追加</button>
     </div>
   </form>
+
     <table>
       <tr>
       <th>作成日</th>
@@ -25,17 +35,20 @@
       <th>更新</th>
       <th>削除</th>
       </tr>
+
       @foreach($items as $item)
       <tr>
       <form action="/todo/update" method="POST" >
       @csrf
       <input type="hidden" name="id" value="{{$item->id}}">
-      <td>{{$item->timestamp()}}</td>
-      <td><input type="text"  value="{{$item->content}}" name="content"></td>
+      <td>{{$item->updated_at}}</td>
+      <td><input type="text"  value="{{$item->content}}" name="content" class="frame"></td>
       <td><button type="submit" class="u-btn">更新</button></td>
       </form>
+
       <form action="/todo/delete" method="POST">
         @csrf
+      <input type="hidden" name="id" value="{{$item->id}}">
       <td><button type="submit" class="d-btn">削除</button></td>
       </form>
       </tr>

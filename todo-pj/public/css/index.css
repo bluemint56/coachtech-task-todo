@@ -21,8 +21,18 @@ h2 {
   padding: 20px;
 }
 
+ul {
+  text-align: center;
+  list-style: none;
+  margin-bottom: 3px;
+}
+
 .f-create {
   text-align: center;
+}
+
+.frame {
+  border: solid 1px black;
 }
 
 table {
@@ -42,6 +52,7 @@ table td {
   border-radius: 5px;
   color: MediumOrchid;
   padding: 7px;
+  margin-left: 10px;
 }
 .c-btn:hover {
   color: white;
